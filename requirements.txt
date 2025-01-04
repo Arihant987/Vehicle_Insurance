@@ -19,7 +19,4 @@ uvicorn
 jinja2
 imblearn
 -e .
-
-arihantaggarwal2003
-6hXWhV7slnAINihZ
-mongodb+srv://arihantaggarwal2003:<db_password>@cluster0.l34uy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+python-dotenv
