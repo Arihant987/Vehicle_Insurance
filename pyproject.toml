@@ -1,0 +1,13 @@
+[project]
+
+name="src"
+version="0.0.1"
+description="MLOps Proj about vechile insurance"
+authors=[{name="Arihant Aggarwal", email="arihant.aggarwal2003@gmail.com"}]
+
+[tools.setuptools]
+packages={find={}}
+
+[tool.setuptools.dynamic]
+dependencies={file="requirements.txt"}
+
