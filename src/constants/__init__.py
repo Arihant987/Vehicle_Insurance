@@ -11,9 +11,13 @@ artifact_dir:str="artifact"
 file_name:str="data.csv"
 train_file_name:str="train.csv"
 test_file_name:str="test.csv"
+schema_file_path=os.path.join("config","schema.yaml")
 
 data_ingestion_collection_name:str="proj_data"
 data_ingestion_dir_name:str="data_ingestion"
 data_ingestion_feature_store_dir:str="feature_store"
 data_ingestion_ingested_dir:str="ingested"
 data_ingestion_train_test_split_ratio:float=0.25
+
+data_validation_dir_name:str="data_validation"
+data_validation_report_file_name:str="report.yaml"
