@@ -30,9 +30,9 @@ categorical_columns:
 drop_columns: _id
 
 # for data transformation
-num_features:
+ss_features:
   - Age
   - Vintage
 
-mm_columns:
+mm_features:
   - Annual_Premium

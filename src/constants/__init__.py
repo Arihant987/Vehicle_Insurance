@@ -1,5 +1,5 @@
 import os
-from datetime import datetime
+from datetime import date
 
 database_name="Vehicle-proj_data"
 collection_name="proj_data"
@@ -7,6 +7,10 @@ mongodb_url_key="mongodb_url" # will get from .env file
 
 pipeline_name:str="vehicle-pipeline"
 artifact_dir:str="artifact"
+
+target_column='Response'
+current_year=date.today().year
+preprocessing_object_file_name="preprocessing.pkl"
 
 file_name:str="data.csv"
 train_file_name:str="train.csv"
@@ -21,3 +25,7 @@ data_ingestion_train_test_split_ratio:float=0.25
 
 data_validation_dir_name:str="data_validation"
 data_validation_report_file_name:str="report.yaml"
+
+data_transformation_dir_name:str="data_transformation"
+data_transformation_transformed_data_dir:str="transformed"
+data_transformation_transformed_obj_dir:str="transformed_object"
