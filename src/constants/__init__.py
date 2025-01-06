@@ -23,8 +23,6 @@ aws_access_key_id_env_key=os.getenv("aws_access_key_id")
 aws_secret_access_key_env_key=os.getenv("aws_secret_access_key")
 region_name="us-east-1"
 
-print(aws_access_key_id_env_key)
-print(aws_secret_access_key_env_key)
 data_ingestion_collection_name:str="proj_data"
 data_ingestion_dir_name:str="data_ingestion"
 data_ingestion_feature_store_dir:str="feature_store"

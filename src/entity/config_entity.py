@@ -46,3 +46,9 @@ class ModelTrainerConfig:
     max_depth=min_samples_split_max_depth
     criterion=min_samples_split_criterion
     random_state=min_samples_split_random_state
+
+@dataclass
+class ModelEvaluationConfig:
+    changed_threshold_score:float=model_evaluation_changed_threshold_score
+    bucket_name:str=model_bucket_name
+    s3_model_key_path:str=model_file_name

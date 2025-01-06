@@ -5,7 +5,7 @@ from typing import Union,List
 import os,sys
 from src.logger import logging
 # import Bucket type
-from mypy_boto3_s3.service_resouce import Bucket
+from mypy_boto3_s3.service_resource import Bucket
 
 from src.exception import MyException
 from botocore.exceptions import ClientError

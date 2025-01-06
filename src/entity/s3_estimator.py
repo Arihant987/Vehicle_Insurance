@@ -32,11 +32,11 @@ class ProjEstimator:
         load the model from model_path
         '''
 
-        return self.s3_load_model(self.model_path,bucket_name=self.bucket_name)
+        return self.s3.load_model(self.model_path,bucket_name=self.bucket_name)
     
     def save_model(self,from_file,remove:bool=False)->None:
         '''
-        save the model to model_path
+        save the model to model_path to s3 bucket
         :param from_file: your local system model path
         :param_remove: by default it is false that mean you will have your model locallly available in your system folder
         '''
@@ -50,10 +50,11 @@ class ProjEstimator:
         except Exception as e:
             raise MyException(e,sys) from e
 
-    def predict(self,fataframe:DataFrame):
+    def predict(self,dataframe:DataFrame):
         try:
             if self.loaded_model is None:
                 self.loaded_model=self.load_model()
+            return self.loaded_model.predict(dataframe=dataframe)
 
         except Exception as e:
             raise MyException(e,sys) from e

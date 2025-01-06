@@ -58,10 +58,10 @@ class ModelTrainer:
             raise MyException(e,sys) from e
         
     def initiate_model_trainer(self)->ModelTrainerArtifact:
-        logging.info("Entered initiate_model_trainer method of MOdelTrainer class")
+        logging.info("Entered initiate_model_trainer method of ModelTrainer class")
 
         try:
-            print("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------")
+            print("---------------------------------------------------------------------------------------------------------------------------------")
             print("Starting model training component")
 
             train_arr=load_numpy_array_data(file_path=self.data_transformation_artifact.transformed_train_file_path)

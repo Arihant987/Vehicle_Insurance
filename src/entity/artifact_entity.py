@@ -28,3 +28,10 @@ class ClassifactionMetricArtifact:
 class ModelTrainerArtifact:
     trained_model_file_path:str
     metric_artifact:ClassifactionMetricArtifact
+
+@dataclass
+class ModelEvaluationArtifact:
+    is_model_aacepted:bool
+    changed_accuracy:float
+    s3_model_path:str # model.pkl only
+    trained_model_path:str
