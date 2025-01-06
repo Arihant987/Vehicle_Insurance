@@ -33,3 +33,16 @@ class DataTransformationConfig:
     transformed_train_file_path:str=os.path.join(data_transformation_dir,data_transformation_transformed_data_dir,train_file_name.replace("csv","npy"))
     transformed_test_file_path:str=os.path.join(data_transformation_dir,data_transformation_transformed_data_dir,test_file_name.replace("csv","npy"))
     transformed_object_file_path:str=os.path.join(data_transformation_dir,data_transformation_transformed_obj_dir,preprocessing_object_file_name)
+
+@dataclass
+class ModelTrainerConfig:
+    model_trainer_dir:str=os.path.join(training_pipeline_config.artifact_dir,model_trainer_dir_name)
+    trained_model_file_path:str=os.path.join(model_trainer_dir,model_trainer_trained_model_dir,model_file_name)
+    expected_accuracy:float=model_trainer_expected_score
+    model_config_file_path:str=model_trainer_model_config_file_path
+    n_estimators=model_trainer_n_estimators
+    min_samples_split=model_trainer_min_samples_split
+    min_samples_leaf=model_trainer_min_samples_leaf
+    max_depth=min_samples_split_max_depth
+    criterion=min_samples_split_criterion
+    random_state=min_samples_split_random_state

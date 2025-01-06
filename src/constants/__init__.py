@@ -29,3 +29,15 @@ data_validation_report_file_name:str="report.yaml"
 data_transformation_dir_name:str="data_transformation"
 data_transformation_transformed_data_dir:str="transformed"
 data_transformation_transformed_obj_dir:str="transformed_object"
+
+model_trainer_dir_name:str='model_trainer'
+model_trainer_trained_model_dir:str="trained_model"
+model_file_name="model.pkl"
+model_trainer_expected_score:float=0.6
+model_trainer_model_config_file_path:str=os.path.join('config','model.yaml')
+model_trainer_n_estimators=200
+model_trainer_min_samples_split:int=7
+model_trainer_min_samples_leaf:int=6
+min_samples_split_max_depth:int=10
+min_samples_split_criterion:str="entropy"
+min_samples_split_random_state=101
