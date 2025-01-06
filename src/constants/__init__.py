@@ -1,4 +1,6 @@
 import os
+from dotenv import load_dotenv
+load_dotenv()
 from datetime import date
 
 database_name="Vehicle-proj_data"
@@ -17,6 +19,12 @@ train_file_name:str="train.csv"
 test_file_name:str="test.csv"
 schema_file_path=os.path.join("config","schema.yaml")
 
+aws_access_key_id_env_key=os.getenv("aws_access_key_id")
+aws_secret_access_key_env_key=os.getenv("aws_secret_access_key")
+region_name="us-east-1"
+
+print(aws_access_key_id_env_key)
+print(aws_secret_access_key_env_key)
 data_ingestion_collection_name:str="proj_data"
 data_ingestion_dir_name:str="data_ingestion"
 data_ingestion_feature_store_dir:str="feature_store"
@@ -41,3 +49,8 @@ model_trainer_min_samples_leaf:int=6
 min_samples_split_max_depth:int=10
 min_samples_split_criterion:str="entropy"
 min_samples_split_random_state=101
+
+
+model_evaluation_changed_threshold_score:float=0.02
+model_bucket_name="projfirstbucket"
+model_pusher_s3_key="model-registry"

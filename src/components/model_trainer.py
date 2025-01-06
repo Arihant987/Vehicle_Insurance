@@ -47,9 +47,9 @@ class ModelTrainer:
             classification_class_wise_report=classification_report(y_test,y_pred)
 
             metric_artifact=ClassifactionMetricArtifact(
-                f1_score=f1_score,
-                precision_score=precision_score,
-                recall_score=recall_score,
+                f1_score=f1,
+                precision_score=precision,
+                recall_score=recall,
                 classification_report=classification_class_wise_report
             )
             return model,metric_artifact

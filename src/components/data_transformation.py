@@ -149,7 +149,7 @@ class DataTransformation:
             logging.info("Initializing transformation of training data")
             x_train_arr=preprocessor.fit_transform(x_train_df)
             logging.info("Initializing transformation of testing data")
-            x_test_arr=preprocessor.fit_transform(x_test_df)
+            x_test_arr=preprocessor.transform(x_test_df)
             logging.info("Transformation done of training and testing data")
 
             logging.info("Applying Smoteenn for handling imbalanced dataset")
@@ -157,13 +157,10 @@ class DataTransformation:
             x_train_final,y_train_final=smt.fit_resample(
                 x_train_arr,y_train_df
             )
-            x_test_final,y_test_final=smt.fit_resample(
-                x_test_arr,y_test_df
-            )
             logging.info("Smoteenn applied successfully")
 
             train_arr=np.c_[x_train_final,np.array(y_train_final)]
-            test_arr=np.c_[x_test_final,np.array(y_test_final)]
+            test_arr=np.c_[x_test_arr,np.array(y_test_df)]
             logging.info("Feature target concatination done for train-test.df")
 
             save_object(self.data_transformation_config.transformed_object_file_path,preprocessor)
