@@ -52,3 +52,6 @@ min_samples_split_random_state=101
 model_evaluation_changed_threshold_score:float=0.02
 model_bucket_name="projfirstbucket"
 model_pusher_s3_key="model-registry"
+
+APP_HOST="0.0.0.0"
+APP_PORT=5000

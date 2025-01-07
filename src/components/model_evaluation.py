@@ -1,6 +1,6 @@
 from src.entity.config_entity import ModelEvaluationConfig
 from src.entity.artifact_entity import ModelEvaluationArtifact,ModelTrainerArtifact,DataIngestionArtifact
-from sklearn.metrics import f1_score
+from sklearn.metrics import recall_score
 
 from sklearn.preprocessing import MinMaxScaler,StandardScaler
 from sklearn.compose import ColumnTransformer
@@ -155,23 +155,23 @@ class ModelEvaluation:
 
             trained_model=load_object(file_path=self.model_trainer_artifact.trained_model_file_path)
             logging.info("Trained model loaded.")
-            trained_model_f1_score=self.model_trainer_artifact.metric_artifact.f1_score
-            logging.info(f"f1 score for this model is {trained_model_f1_score}")
+            trained_model_recall_score=self.model_trainer_artifact.metric_artifact.recall_score
+            logging.info(f"recall score for this model is {trained_model_recall_score}")
 
-            best_model_f1_score=None
+            best_model_recall_score=None
             best_model=self.get_best_model()
 
             if best_model is not None:
-                logging.info(f"Computing f1 score for production model.......")
+                logging.info(f"Computing recall score for production model.......")
                 y_hat_best_model=best_model.predict(x_test)
-                best_model_f1_score=f1_score(y,y_hat_best_model)
-                logging.info(f"f1 score for production model: {best_model_f1_score}, f1 score for new trained model: {trained_model_f1_score}")
+                best_model_recall_score=recall_score(y,y_hat_best_model)
+                logging.info(f"f1 score for production model: {best_model_recall_score}, f1 score for new trained model: {trained_model_f1_score}")
 
-            tmp_best_model_score=0 if best_model_f1_score is None else best_model_f1_score
-            result=EvaluateModelResponse(trained_model_f1_score=trained_model_f1_score,
-                                         best_model_f1_score=best_model_f1_score,
-                                         is_model_accepted=trained_model_f1_score>tmp_best_model_score,
-                                         difference=trained_model_f1_score-tmp_best_model_score)
+            tmp_best_model_score=0 if best_model_recall_score is None else best_model_recall_score
+            result=EvaluateModelResponse(trained_model_f1_score=trained_model_recall_score,
+                                         best_model_f1_score=best_model_recall_score,
+                                         is_model_accepted=trained_model_recall_score>tmp_best_model_score,
+                                         difference=trained_model_recall_score-tmp_best_model_score)
             
             logging.info(f"Result: {result}")
             return result

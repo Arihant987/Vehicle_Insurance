@@ -51,4 +51,14 @@ class ModelTrainerConfig:
 class ModelEvaluationConfig:
     changed_threshold_score:float=model_evaluation_changed_threshold_score
     bucket_name:str=model_bucket_name
-    s3_model_key_path:str=model_file_name
+    s3_model_key_path:str=model_file_name # model.pkl
+
+@dataclass
+class ModelPusherConfig:
+    bucket_name:str=model_bucket_name
+    s3_model_key_path:str=model_file_name # model.pkl
+
+@dataclass 
+class VehiclePredictorConfig:
+    model_file_path:str=model_file_name
+    model_bucket_name=model_bucket_name
