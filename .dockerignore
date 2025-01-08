@@ -5,6 +5,7 @@ env
 logs
 notebook
 src.egg-info
+.env
 .gitignore
 demo.py
 README.md
