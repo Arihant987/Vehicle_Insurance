@@ -72,7 +72,7 @@ async def index(request: Request):
     Renders the main HTML form page for vehicle data input.
     """
     return templates.TemplateResponse(
-            "index.html",{"request": request, "context": "Rendering"})
+            "index.html",{"request": request, "context": "Press the Predict button"})
 
 
 # Route to handle form submission and make predictions
